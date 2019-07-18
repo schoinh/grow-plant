@@ -35,8 +35,29 @@ class Program
                 Console.WriteLine("Please enter a number between 1 and 4.");
                 break;
         }
+        if(newPlant.IsAlive())
+        {
+            PromptUser();
+        }
+        else
+        {
+            Console.WriteLine($"Sorry! {newPlant.Name} died!");
+            Console.WriteLine("~~~GAME OVER~~~");
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("Would you like to play again?");
+            string response = Console.ReadLine();
+            if(response == "y" || response == "Y")
+            {
+                newPlant.ResetPlant();
+                Main();
+            }
+            else
+            {
+                Console.WriteLine("Ok. Bye.");
+            }
 
-        PromptUser();
+        }
+
     }
 
     private static void Main()
@@ -47,6 +68,7 @@ class Program
         newPlant.Name = answer;
 
         PromptUser();
+
 
 
 

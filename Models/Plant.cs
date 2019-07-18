@@ -42,5 +42,25 @@ namespace GrowPlant.Models
         {
             Happiness += 1;
         }
+
+        public bool IsAlive()
+        {
+            if( 0 < WaterLevel && WaterLevel < 7)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        public void ResetPlant()
+        {
+            WaterLevel = 3;
+            Height = 0;
+            Foliage = 0;
+            Happiness = 5;
+        }
     }
 }
