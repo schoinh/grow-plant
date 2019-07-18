@@ -8,10 +8,7 @@ class Program
 
     private static void DisplayStats()
     {
-        Console.WriteLine($"Your plant {newPlant.Name} is {newPlant.Height} inches tall.");
-        Console.WriteLine($"* Water Level: {newPlant.WaterLevel}");
-        Console.WriteLine($"* Foliage: {newPlant.Foliage}");
-        Console.WriteLine($"* Happiness: {newPlant.Happiness}");
+        Console.WriteLine($"Your plant {newPlant.Name} is {newPlant.Height} inches tall. \n * Water Level: {newPlant.WaterLevel} \n * Foliage: {newPlant.Foliage} \n * Happiness: {newPlant.Happiness}");
     }
 
     private static void PromptUser()
@@ -62,8 +59,7 @@ class Program
         }
         else
         {
-            Console.WriteLine($"Sorry! {newPlant.Name} died!");
-            Console.WriteLine("~~~GAME OVER~~~");
+            Console.WriteLine($"Sorry! {newPlant.Name} died! \n~~~GAME OVER~~~");
             Console.WriteLine("--------------------------------");
             Console.WriteLine("Would you like to play again? (Y/N)");
             answer = Console.ReadLine();
@@ -82,7 +78,7 @@ class Program
     private static void Main()
     {
         Console.WriteLine("~~~GROW YOUR PLANT~~~");
-        Console.WriteLine("Grow your plant taller by taking care of it. Keep the water level between 0 and 7 to keep it alive.");
+        Console.WriteLine("- Grow your plant taller by taking care of it. \n- Keep the water level between 0 and 7 to keep it alive.");
         Console.WriteLine("Enter a name for your new plant:");
         answer = Console.ReadLine();
         newPlant.Name = answer;
