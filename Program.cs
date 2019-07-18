@@ -8,7 +8,6 @@ class Program
 
     private static void DisplayStats()
     {
-        Console.WriteLine("--------------------------------");
         Console.WriteLine($"Your plant {newPlant.Name} is {newPlant.Height} inches tall.");
         Console.WriteLine($"* Water Level: {newPlant.WaterLevel}");
         Console.WriteLine($"* Foliage: {newPlant.Foliage}");
@@ -47,6 +46,8 @@ class Program
                 break;
         }
 
+        Console.WriteLine("--------------------------------");
+        newPlant.RandomEvent();
         NextSteps();
     }
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace GrowPlant.Models
 {
@@ -45,9 +46,45 @@ namespace GrowPlant.Models
             Happiness += 1;
         }
 
+        public void Fungus()
+        {
+            Console.WriteLine($">>> {Name} suffered from a fungal infection, and its happiness was lowered.");
+            Happiness -= 2;
+        }
+
+        public void Rainstorm()
+        {
+            Console.WriteLine(">>> A rainstorm swept through the area and flooded the soil.");
+            WaterLevel += 4;
+        }
+
+        public void Deer()
+        {
+            Console.WriteLine(">>> Oh no! Looks like a deer ate your plant!");
+            IsAlive = false;
+        }
+
+        public void NiceDay()
+        {
+            Console.WriteLine($">>> Wow! A nice day boosted {Name}'s foliage, height, and happiness!");
+            Foliage += 2;
+            Height += 3;
+            Happiness += 3;
+        }
+
+        public void RandomEvent()
+        {
+            List<Action> events = new List<Action> () { Fungus, Rainstorm, Deer, NiceDay };
+
+            Random rand = new Random();
+            int eventNumber = rand.Next(0, 4);
+
+            events[eventNumber]();
+        }
+
         public void DetermineAlive()
         {
-            if (WaterLevel < 0 || WaterLevel > 7)
+            if (WaterLevel < 0 || WaterLevel > 7 || Happiness < 0)
             {
                 IsAlive = false;
             }
