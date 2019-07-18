@@ -10,9 +10,9 @@ class Program
     {
         Console.WriteLine("--------------------------------");
         Console.WriteLine($"Your plant {newPlant.Name} is {newPlant.Height} inches tall.");
-        Console.WriteLine($"> Water Level: {newPlant.WaterLevel}");
-        Console.WriteLine($"> Foliage: {newPlant.Foliage}");
-        Console.WriteLine($"> Happiness: {newPlant.Happiness}");
+        Console.WriteLine($"* Water Level: {newPlant.WaterLevel}");
+        Console.WriteLine($"* Foliage: {newPlant.Foliage}");
+        Console.WriteLine($"* Happiness: {newPlant.Happiness}");
     }
 
     private static void PromptUser()
@@ -47,12 +47,14 @@ class Program
                 break;
         }
 
-        DetermineGameOver();
+        NextSteps();
     }
 
-    private static void DetermineGameOver()
+    private static void NextSteps()
     {
-        if(newPlant.IsAlive())
+        newPlant.DetermineAlive();
+
+        if (newPlant.IsAlive)
         {
             DisplayStats();
             PromptUser();

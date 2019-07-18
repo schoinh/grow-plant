@@ -9,6 +9,7 @@ namespace GrowPlant.Models
         public int Height { get; set; }
         public int Foliage { get; set; }
         public int Happiness { get; set; }
+        public bool IsAlive { get; set; }
 
         public Plant()
         {
@@ -17,6 +18,7 @@ namespace GrowPlant.Models
             Height = 0;
             Foliage = 0;
             Happiness = 5;
+            IsAlive = true;
         }
 
         public void Water()
@@ -43,15 +45,11 @@ namespace GrowPlant.Models
             Happiness += 1;
         }
 
-        public bool IsAlive()
+        public void DetermineAlive()
         {
-            if( 0 <= WaterLevel && WaterLevel <= 7)
+            if (WaterLevel < 0 || WaterLevel > 7)
             {
-                return true;
-            }
-            else
-            {
-                return false;
+                IsAlive = false;
             }
         }
 
@@ -61,6 +59,7 @@ namespace GrowPlant.Models
             Height = 0;
             Foliage = 0;
             Happiness = 5;
+            IsAlive = true;
         }
     }
 }
