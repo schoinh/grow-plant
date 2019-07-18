@@ -45,7 +45,7 @@ namespace GrowPlant.Models
 
         public bool IsAlive()
         {
-            if( 0 < WaterLevel && WaterLevel < 7)
+            if( 0 <= WaterLevel && WaterLevel <= 7)
             {
                 return true;
             }
@@ -53,8 +53,8 @@ namespace GrowPlant.Models
             {
                 return false;
             }
-
         }
+
         public void ResetPlant()
         {
             WaterLevel = 3;
