@@ -11,6 +11,10 @@ namespace GrowPlant.Models
         public int Foliage { get; set; }
         public int Happiness { get; set; }
         public bool IsAlive { get; set; }
+        
+        private Random _random;
+
+        private List<Action> _events;
 
         public Plant()
         {
@@ -20,6 +24,8 @@ namespace GrowPlant.Models
             Foliage = 0;
             Happiness = 5;
             IsAlive = true;
+            _random = new Random();
+            _events = new List<Action> () { Fungus, Rainstorm, Deer, NiceDay };
         }
 
         public void Water()
@@ -74,12 +80,8 @@ namespace GrowPlant.Models
 
         public void RandomEvent()
         {
-            List<Action> events = new List<Action> () { Fungus, Rainstorm, Deer, NiceDay };
-
-            Random rand = new Random();
-            int eventNumber = rand.Next(0, 4);
-
-            events[eventNumber]();
+            int eventNumber = _random.Next(0, 4);
+            _events[eventNumber]();
         }
 
         public void DetermineAlive()
